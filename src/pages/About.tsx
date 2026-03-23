@@ -71,7 +71,7 @@ const About = () => {
         </motion.div>
         <div className="relative z-10 text-center">
           <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-[#f97316] font-meta text-xs font-black uppercase tracking-[0.4em] mb-4 block">A Legacy of Trust</motion.span>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-display text-6xl lg:text-8xl font-black uppercase tracking-tighter">
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-display text-6xl lg:text-8xl font-black tracking-tighter">
             Who We <span className="text-[#f97316]">Are.</span>
           </motion.h1>
           <div className="h-1 w-24 bg-[#f97316] mx-auto mt-6" />
