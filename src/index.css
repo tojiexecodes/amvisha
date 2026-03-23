@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 235 40% 98%;
+    --foreground: 235 73% 26%;
+    --card: 235 40% 98%;
+    --card-foreground: 235 73% 26%;
+    --popover: 235 40% 98%;
+    --popover-foreground: 235 73% 26%;
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 235 20% 90%;
+    --secondary-foreground: 235 73% 26%;
+    --muted: 235 15% 85%;
+    --muted-foreground: 235 30% 50%;
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 235 20% 85%;
+    --input: 235 20% 85%;
+    --ring: 25 95% 53%;
+    --radius: 0px;
+
+    --sidebar-background: 235 40% 98%;
+    --sidebar-foreground: 235 73% 26%;
+    --sidebar-primary: 235 73% 26%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 235 20% 90%;
+    --sidebar-accent-foreground: 235 73% 26%;
+    --sidebar-border: 235 20% 85%;
+    --sidebar-ring: 25 95% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  ::selection {
+    background: hsl(25 95% 53%);
+    color: hsl(235 40% 98%);
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    text-wrap: balance;
+  }
+
+  .font-meta {
+    font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  .clip-reveal {
+    clip-path: inset(0% 0% 0% 0%);
+  }
+  .clip-hidden {
+    clip-path: inset(100% 0% 0% 0%);
+  }
+}
