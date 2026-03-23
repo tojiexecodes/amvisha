@@ -14,6 +14,7 @@ import logo from "@/assets/Amvisha-Logo-With-White-Border.png";
 import featuredProject from "@/assets/footer1.webp";
 
 const SiteFooter = () => {
+  // Helper to force scroll to top
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -21,8 +22,8 @@ const SiteFooter = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about" },
-    { name: "Services", path: "/services" },
     { name: "Projects", path: "/projects" },
+    { name: "Services", path: "/services" },
     { name: "Gallery", path: "/gallery" },
     { name: "Blogs", path: "/blogs" },
     { name: "Contact Us", path: "/contact" }
@@ -36,7 +37,7 @@ const SiteFooter = () => {
           
           {/* Company Branding */}
           <div className="lg:col-span-3 flex flex-col gap-10">
-            <Link to="/">
+            <Link to="/" onClick={scrollToTop}>
               <img 
                 src={logo} 
                 alt="Amvisha Real Estate Developers" 
@@ -91,6 +92,7 @@ const SiteFooter = () => {
                 <li key={link.name}>
                   <Link 
                     to={link.path} 
+                    onClick={scrollToTop}
                     className="flex items-center gap-3 text-xs lg:text-sm uppercase tracking-widest opacity-60 hover:opacity-100 hover:text-[#f97316] transition-all group font-bold"
                   >
                     <ChevronRight size={12} className="text-[#f97316] transition-transform group-hover:translate-x-1" />
@@ -133,7 +135,11 @@ const SiteFooter = () => {
                     </p>
                   </div>
                   <div className="h-8 w-[1px] bg-white/10 mx-4" />
-                  <Link to="/projects" className="text-[10px] uppercase font-black tracking-widest text-[#f97316] hover:text-white transition-colors">
+                  <Link 
+                    to="/projects" 
+                    onClick={scrollToTop}
+                    className="text-[10px] uppercase font-black tracking-widest text-[#f97316] hover:text-white transition-colors"
+                  >
                     Explore
                   </Link>
                 </div>
