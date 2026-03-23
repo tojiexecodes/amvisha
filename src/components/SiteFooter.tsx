@@ -169,16 +169,16 @@ const SiteFooter = () => {
           </button>
 
           <div className="flex items-center gap-8">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#f97316] transition-all hover:scale-110">
+            <a href="https://www.facebook.com/amvisharealestate/" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#f97316] transition-all hover:scale-110">
               <Facebook size={18} />
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#f97316] transition-all hover:scale-110">
+            <a href="https://www.youtube.com/channel/UCnoPEH-X7wzrV5EM8u7rjbQ" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#f97316] transition-all hover:scale-110">
               <Youtube size={18} />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#f97316] transition-all hover:scale-110">
+            <a href="https://www.instagram.com/amvisharealestate/" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#f97316] transition-all hover:scale-110">
               <Instagram size={18} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#f97316] transition-all hover:scale-110">
+            <a href="https://in.linkedin.com/company/amvisha-real-estate-developers" target="_blank" rel="noopener noreferrer" className="text-white/30 hover:text-[#f97316] transition-all hover:scale-110">
               <Linkedin size={18} />
             </a>
           </div>

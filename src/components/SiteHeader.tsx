@@ -25,10 +25,10 @@ const navItems = [
 ];
 
 const socialLinks = [
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: Youtube, href: "https://youtube.com", label: "Youtube" },
-  { icon: Linkedin, href: "https://linkedin.com", label: "Linkedin" },
+  { icon: Facebook, href: "https://www.facebook.com/amvisharealestate/", label: "Facebook" },
+  { icon: Instagram, href: "https://www.instagram.com/amvisharealestate/", label: "Instagram" },
+  { icon: Youtube, href: "https://www.youtube.com/channel/UCnoPEH-X7wzrV5EM8u7rjbQ", label: "Youtube" },
+  { icon: Linkedin, href: "https://in.linkedin.com/company/amvisha-real-estate-developers", label: "Linkedin" },
 ];
 
 const SiteHeader = () => {
