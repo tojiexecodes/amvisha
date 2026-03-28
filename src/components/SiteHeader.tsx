@@ -44,7 +44,6 @@ const SiteHeader = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Helper to scroll to top and close mobile menu
   const handleLinkClick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setMenuOpen(false);
@@ -53,13 +52,11 @@ const SiteHeader = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-transparent"
+        isScrolled ? "bg-white/95 backdrop-blur-md shadow-md" : "bg-transparent"
       }`}
     >
       {/* Top Contact & Social Bar */}
-      <div className={`py-3 px-4 lg:px-12 flex justify-between items-center text-xs lg:text-sm tracking-widest uppercase font-meta border-b transition-colors duration-500 ${
-        isScrolled ? "border-border text-foreground" : "border-white/10 text-white"
-      }`}>
+      <div className={`py-3 px-4 lg:px-12 flex justify-between items-center text-xs lg:text-sm tracking-widest uppercase font-meta border-b transition-colors duration-500 text-blue-600 border-blue-100`}>
         <div className="flex items-center gap-6 lg:gap-10">
           <div className="flex items-center gap-6">
             <a href="tel:+918271985000" className="flex items-center gap-2 transition-colors hover:text-[#f97316]">
@@ -81,14 +78,14 @@ const SiteHeader = () => {
             </a>
           </div>
 
-          <div className="hidden sm:flex items-center gap-4 border-l border-white/20 pl-6">
+          <div className="hidden sm:flex items-center gap-4 border-l border-blue-200 pl-6">
             {socialLinks.map((social) => (
               <a 
                 key={social.label} 
                 href={social.href} 
                 target="_blank" 
                 rel="noreferrer"
-                className="transition-all hover:text-[#f97316] hover:-translate-y-0.5"
+                className="transition-all hover:text-[#f97316] hover:-translate-y-0.5 text-blue-600"
               >
                 <social.icon size={16} />
               </a>
@@ -99,7 +96,7 @@ const SiteHeader = () => {
         <div className="flex items-center gap-4">
           <button 
             onClick={() => setIsFormOpen(true)}
-            className="flex items-center gap-2 group transition-colors hover:text-[#f97316] uppercase tracking-wider outline-none"
+            className="flex items-center gap-2 group transition-colors text-blue-600 hover:text-[#f97316] uppercase tracking-wider outline-none"
           >
             <Calendar size={14} className="text-[#f97316] group-hover:scale-110 transition-transform" />
             <span className="font-bold hidden xs:inline">Request for Site Visit</span>
@@ -112,10 +109,11 @@ const SiteHeader = () => {
       <div className="bg-transparent">
         <div className="flex items-center justify-between px-6 lg:px-12 h-24 lg:h-28 transition-all duration-500">
           <NavLink to="/" onClick={handleLinkClick} className="flex items-center">
+            {/* Logo is now normal: removed filters and brightness classes */}
             <img 
               src={logo} 
               alt="Amvisha Logo" 
-              className={`transition-all duration-500 ${isScrolled ? "h-12" : "h-16"}`} 
+              className={`transition-all duration-500 object-contain ${isScrolled ? "h-12" : "h-16"}`} 
             />
           </NavLink>
 
@@ -125,9 +123,7 @@ const SiteHeader = () => {
                 key={item.name}
                 to={item.path}
                 onClick={handleLinkClick}
-                className={`group relative font-meta text-[13px] font-bold uppercase tracking-[0.25em] transition-all duration-500 hover:text-[#f97316] ${
-                  isScrolled ? "text-muted-foreground" : "text-white"
-                }`}
+                className={`group relative font-meta text-[13px] font-bold uppercase tracking-[0.25em] transition-all duration-500 text-blue-600 hover:text-[#f97316]`}
                 activeClassName="!text-[#f97316]"
               >
                 {item.name}
@@ -138,9 +134,7 @@ const SiteHeader = () => {
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`lg:hidden font-meta text-xs font-bold uppercase tracking-widest z-50 px-4 py-2 border-2 rounded-sm transition-all duration-500 hover:bg-[#f97316] hover:text-white hover:border-[#f97316] ${
-              isScrolled ? "text-foreground border-border" : "text-white border-white/30"
-            }`}
+            className={`lg:hidden font-meta text-xs font-bold uppercase tracking-widest z-50 px-4 py-2 border-2 rounded-sm transition-all duration-500 text-blue-600 border-blue-600 hover:bg-[#f97316] hover:text-white hover:border-[#f97316]`}
           >
             {menuOpen ? "Close" : "Menu"}
           </button>
@@ -210,14 +204,14 @@ const SiteHeader = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden overflow-hidden border-b border-border bg-background shadow-xl"
+            className="lg:hidden overflow-hidden border-b border-blue-100 bg-white shadow-xl"
           >
             <nav className="flex flex-col px-8 py-12 gap-8">
               {navItems.map((item) => (
                 <NavLink
                   key={item.name}
                   to={item.path}
-                  className="font-display text-5xl font-light text-foreground transition-colors hover:text-[#f97316]"
+                  className="font-display text-5xl font-light text-blue-600 transition-colors hover:text-[#f97316]"
                   activeClassName="text-[#f97316] font-medium italic"
                   onClick={handleLinkClick}
                 >
