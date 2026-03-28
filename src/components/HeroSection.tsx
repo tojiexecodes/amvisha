@@ -1,56 +1,128 @@
 import { motion } from "framer-motion";
-import heroBg from "@/assets/hero-bg.jpg";
+import { Play, MapPin, ArrowRight } from "lucide-react";
 
 const brandCurve = [0.23, 1, 0.32, 1] as const;
 
 const HeroSection = () => {
+  const videoUrl = "https://www.youtube.com/watch?v=jFpBQtbNLGA";
+  const thumbnail = "https://i.ytimg.com/vi/jFpBQtbNLGA/maxresdefault.jpg";
+
   return (
-    <section className="relative h-[90vh] lg:h-screen overflow-hidden">
-      <motion.img
-        src={heroBg}
-        alt="Architectural detail"
-        className="absolute inset-0 w-full h-full object-cover"
-        initial={{ scale: 1.15, clipPath: "inset(100% 0% 0% 0%)" }}
-        animate={{ scale: 1, clipPath: "inset(0% 0% 0% 0%)" }}
-        transition={{ duration: 1.6, ease: brandCurve }}
-      />
-      <div className="absolute inset-0 bg-foreground/30" />
+    <section className="relative min-h-screen bg-[#121a73] text-white flex flex-col justify-center overflow-hidden pt-32 lg:pt-40 pb-12 px-6 lg:px-20">
+      
+      {/* Background Accents */}
+      <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-gradient-to-b lg:bg-gradient-to-l from-white/[0.03] to-transparent pointer-events-none" />
+      <div className="absolute -bottom-24 -left-24 w-72 h-72 lg:w-96 lg:h-96 bg-blue-400/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="relative z-10 h-full flex flex-col justify-end px-6 lg:px-12 pb-12 lg:pb-20">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8, ease: brandCurve }}
-          className="font-meta text-primary-foreground/70 mb-4 tracking-wider uppercase text-xs"
-        >
-          Real Estate Developers Pvt. Ltd.
-        </motion.p>
+      {/* Added mt-8 to the grid to create more space below the header */}
+      <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start lg:items-center relative z-10 mt-8 lg:mt-0">
         
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6, ease: brandCurve }}
-          className="font-display font-light italic leading-[1.1] tracking-tight text-primary-foreground max-w-4xl"
-          style={{ fontSize: "clamp(2rem, 5vw, 4.5rem)" }}
-        >
-          Welcome to Amvisha.
-          <span className="block not-italic font-normal mt-2 opacity-90" style={{ fontSize: "clamp(1rem, 2vw, 1.5rem)" }}>
-            Your Ultimate Real Estate Investment Solution Where You Can Buy Flats In Ranchi
-          </span>
-        </motion.h1>
+        {/* Content Area */}
+        <div className="lg:col-span-7 flex flex-col gap-6 order-2 lg:order-1">
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: brandCurve }}
+          >
+            {/* Tag moved down further via margin/padding adjustment above */}
+            <span className="inline-block px-3 py-1 rounded-full border border-white/10 text-[9px] lg:text-[10px] uppercase tracking-[0.2em] text-white/60 mb-6 bg-white/5 backdrop-blur-sm">
+              Real Estate Developers
+            </span>
+            
+            <h1 className="text-4xl lg:text-7xl font-light leading-tight tracking-tight">
+              Welcome to <span className="italic font-serif">Amvisha.</span>
+            </h1>
+            <h2 className="text-lg lg:text-2xl text-white/80 mt-4 font-light max-w-xl leading-snug">
+              Ultimate Real Estate Investment for 
+              <span className="text-white font-medium"> Luxury Flats in Ranchi.</span>
+            </h2>
+          </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.2 }}
-          className="font-meta text-primary-foreground/60 mt-6 max-w-md"
-          style={{ fontSize: "12px", lineHeight: "1.8" }}
-        >
-          We at “AMVISHA” are proud to be your first choice for unmatched real estate services. We are the real estate market’s pinnacle of perfection, offering everything from gorgeous villas and penthouses to prime plots and stylish apartments.
-        </motion.p>
+          {/* Mobile Video Card (Visible only on small screens) */}
+          <div className="block lg:hidden w-full my-2">
+             <VideoCard videoUrl={videoUrl} thumbnail={thumbnail} isMobile />
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-white/50 text-sm lg:text-base leading-relaxed max-w-lg border-l border-white/10 pl-5 my-2"
+          >
+            We represent the pinnacle of perfection in Ranchi's market, from gorgeous villas to stylish penthouses.
+          </motion.p>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            <button className="w-full lg:w-auto bg-white text-[#121a73] px-10 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all flex items-center justify-center gap-2 group shadow-2xl active:scale-[0.98]">
+              View Properties <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </motion.div>
+        </div>
+
+        {/* Desktop Video Card (Visible only on large screens) */}
+        <div className="hidden lg:block lg:col-span-5 order-1 lg:order-2">
+           <VideoCard videoUrl={videoUrl} thumbnail={thumbnail} />
+        </div>
+
       </div>
+
+      {/* Stats Bar */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.8 }}
+        className="mt-20 lg:mt-32 border-t border-white/5 pt-10 grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-4"
+      >
+        {[
+          { label: "Luxury Units", val: "3 & 4 BHK" },
+          { label: "Smart Security", val: "24/7" },
+          { label: "Amenities", val: "Premium" },
+          { label: "Prime Location", val: "Ranchi" }
+        ].map((stat, i) => (
+          <div key={i} className="text-center lg:text-left group">
+            <p className="text-xl lg:text-2xl font-light group-hover:text-white/100 transition-colors">{stat.val}</p>
+            <p className="text-[9px] uppercase tracking-[0.2em] text-white/30 mt-2">{stat.label}</p>
+          </div>
+        ))}
+      </motion.div>
     </section>
   );
 };
+
+const VideoCard = ({ videoUrl, thumbnail, isMobile = false }: { videoUrl: string, thumbnail: string, isMobile?: boolean }) => (
+  <motion.div 
+    className="relative group"
+    initial={isMobile ? {} : { opacity: 0, scale: 0.98 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 1.2, ease: brandCurve }}
+  >
+    {/* Clean border effect */}
+    <div className={`relative aspect-video rounded-2xl overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)] border border-white/10 ${isMobile ? 'my-6' : ''}`}>
+      <a href={videoUrl} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
+        <img
+          src={thumbnail}
+          alt="Amvisha Luxury Flats"
+          className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out"
+        />
+        {/* Minimal Play Overlay */}
+        <div className="absolute inset-0 flex items-center justify-center bg-[#121a73]/10 backdrop-blur-[1px] group-hover:backdrop-blur-none transition-all duration-500">
+          <div className="w-14 h-14 lg:w-16 lg:h-16 bg-white rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-all duration-500 ease-out">
+            <Play className="text-[#121a73] fill-[#121a73] w-5 h-5 lg:w-6 lg:h-6 ml-1" />
+          </div>
+        </div>
+      </a>
+    </div>
+    
+    {/* Minimal Location Badge */}
+    <div className={`absolute -bottom-4 -left-2 lg:-left-4 bg-[#0e145a] py-3 px-4 rounded-xl border border-white/10 flex items-center gap-3 shadow-2xl ${isMobile ? 'scale-90' : ''}`}>
+       <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+       <p className="text-[10px] lg:text-xs font-medium tracking-wide text-white/90">Siddharth Lotus, Bariatu</p>
+    </div>
+  </motion.div>
+);
 
 export default HeroSection;
