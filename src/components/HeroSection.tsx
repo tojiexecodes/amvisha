@@ -14,7 +14,6 @@ const HeroSection = () => {
       <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-gradient-to-b lg:bg-gradient-to-l from-white/[0.03] to-transparent pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-72 h-72 lg:w-96 lg:h-96 bg-blue-400/5 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Added mt-8 to the grid to create more space below the header */}
       <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start lg:items-center relative z-10 mt-8 lg:mt-0">
         
         {/* Content Area */}
@@ -24,8 +23,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: brandCurve }}
           >
-            {/* Tag moved down further via margin/padding adjustment above */}
-            <span className="inline-block px-3 py-1 rounded-full border border-white/10 text-[9px] lg:text-[10px] uppercase tracking-[0.2em] text-white/60 mb-6 bg-white/5 backdrop-blur-sm">
+            <span className="inline-block px-3 py-1 rounded-full border border-white/10 text-[9px] lg:text-[10px] uppercase tracking-[0.2em] text-white/60 mb-6 bg-white/5">
               Real Estate Developers
             </span>
             
@@ -38,7 +36,7 @@ const HeroSection = () => {
             </h2>
           </motion.div>
 
-          {/* Mobile Video Card (Visible only on small screens) */}
+          {/* Mobile Video Card */}
           <div className="block lg:hidden w-full my-2">
              <VideoCard videoUrl={videoUrl} thumbnail={thumbnail} isMobile />
           </div>
@@ -63,7 +61,7 @@ const HeroSection = () => {
           </motion.div>
         </div>
 
-        {/* Desktop Video Card (Visible only on large screens) */}
+        {/* Desktop Video Card */}
         <div className="hidden lg:block lg:col-span-5 order-1 lg:order-2">
            <VideoCard videoUrl={videoUrl} thumbnail={thumbnail} />
         </div>
@@ -83,8 +81,8 @@ const HeroSection = () => {
           { label: "Amenities", val: "Premium" },
           { label: "Prime Location", val: "Ranchi" }
         ].map((stat, i) => (
-          <div key={i} className="text-center lg:text-left group">
-            <p className="text-xl lg:text-2xl font-light group-hover:text-white/100 transition-colors">{stat.val}</p>
+          <div key={i} className="text-center lg:text-left">
+            <p className="text-xl lg:text-2xl font-light">{stat.val}</p>
             <p className="text-[9px] uppercase tracking-[0.2em] text-white/30 mt-2">{stat.label}</p>
           </div>
         ))}
@@ -95,29 +93,28 @@ const HeroSection = () => {
 
 const VideoCard = ({ videoUrl, thumbnail, isMobile = false }: { videoUrl: string, thumbnail: string, isMobile?: boolean }) => (
   <motion.div 
-    className="relative group"
+    className="relative"
     initial={isMobile ? {} : { opacity: 0, scale: 0.98 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{ duration: 1.2, ease: brandCurve }}
   >
-    {/* Clean border effect */}
-    <div className={`relative aspect-video rounded-2xl overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)] border border-white/10 ${isMobile ? 'my-6' : ''}`}>
+    <div className={`relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10 ${isMobile ? 'my-6' : ''}`}>
       <a href={videoUrl} target="_blank" rel="noopener noreferrer" className="block w-full h-full">
         <img
           src={thumbnail}
           alt="Amvisha Luxury Flats"
-          className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000 ease-out"
+          className="w-full h-full object-cover" 
         />
-        {/* Minimal Play Overlay */}
-        <div className="absolute inset-0 flex items-center justify-center bg-[#121a73]/10 backdrop-blur-[1px] group-hover:backdrop-blur-none transition-all duration-500">
-          <div className="w-14 h-14 lg:w-16 lg:h-16 bg-white rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-all duration-500 ease-out">
+        {/* Play Overlay - Removed blur and hover scale for a cleaner look */}
+        <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+          <div className="w-14 h-14 lg:w-16 lg:h-16 bg-white rounded-full flex items-center justify-center shadow-2xl">
             <Play className="text-[#121a73] fill-[#121a73] w-5 h-5 lg:w-6 lg:h-6 ml-1" />
           </div>
         </div>
       </a>
     </div>
     
-    {/* Minimal Location Badge */}
+    {/* Location Badge */}
     <div className={`absolute -bottom-4 -left-2 lg:-left-4 bg-[#0e145a] py-3 px-4 rounded-xl border border-white/10 flex items-center gap-3 shadow-2xl ${isMobile ? 'scale-90' : ''}`}>
        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
        <p className="text-[10px] lg:text-xs font-medium tracking-wide text-white/90">Siddharth Lotus, Bariatu</p>
