@@ -86,7 +86,7 @@ const About = () => {
               <h2 className="text-[#f97316] font-meta text-xs font-black uppercase tracking-[0.4em] mb-6">Established 2018</h2>
               <h3 className="text-3xl lg:text-5xl font-black uppercase tracking-tight leading-none mb-10">Revolutionizing the <br /> <span className="text-[#f97316]">Real Estate Industry.</span></h3>
               <div className="space-y-6 text-white/60 font-meta text-lg leading-relaxed">
-                <p>Amvisha Real Estate Developers Pvt Ltd, founded in 2018 by the visionary Sri Amaresh Jha, is a dynamic organization dedicated to revolutionizing the real estate industry by providing unparalleled housing solutions.</p>
+                <p>Amvisha Real Estate Developers Pvt Ltd, founded in 2018 by the visionary Acharya Amresh Jha, is a dynamic organization dedicated to revolutionizing the real estate industry by providing unparalleled housing solutions.</p>
               </div>
             </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-10 border-t border-white/5">
@@ -108,7 +108,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#121a73] via-transparent to-transparent opacity-80" />
               </div>
               <div className="bg-[#121a73] p-8 border-t border-white/5 text-center">
-                <h4 className="text-xl font-black uppercase tracking-tighter text-white">Sri Amaresh Jha</h4>
+                <h4 className="text-xl font-black uppercase tracking-tighter text-white">Acharya Amresh Jha</h4>
                 <p className="text-[#f97316] font-meta text-xs font-bold uppercase tracking-[0.3em] mt-1.5">Managing Director</p>
               </div>
             </div>
