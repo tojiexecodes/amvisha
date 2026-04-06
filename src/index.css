@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+/* 1. Updated Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -43,9 +44,10 @@
     @apply border-border;
   }
 
+  /* 2. Changed Body font to Poppins */
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Poppins', sans-serif;
   }
 
   ::selection {
@@ -58,8 +60,9 @@
     text-wrap: balance;
   }
 
+  /* 3. Changed Meta/Nav font to Poppins */
   .font-meta {
-    font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 11px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
